@@ -26,16 +26,6 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: '나눔스퀘어 Bold';
-    src: url('../fonts/NanumSquare_acB.ttf');
-}
-
-@font-face {
-    font-family: '나눔스퀘어 ExtraBold';
-    src: url('../fonts/NanumSquare_acEB.ttf');
-}
-
 
 body,
 html {
@@ -45,7 +35,7 @@ html {
 
 body, p {
 	color: #787976;
-	font: 400 1rem/1.5625rem "Open Sans", sans-serif;
+	font: 400 1rem/1.5625rem "인피니티산스 Regular", sans-serif;
 }
 
 .p-large {
@@ -53,7 +43,7 @@ body, p {
 }
 
 .p-small {
-	font: 400 0.875rem/1.375rem "Open Sans", sans-serif;
+	font: 400 0.875rem/1.375rem "인피니티산스 Regular", sans-serif;
 }
 
 .p-heading {
@@ -63,36 +53,45 @@ body, p {
 
 .li-space-lg li {
 	margin-bottom: 0.375rem;
+	font-family: '인피니티산스 Bold';
+    color: #5c5c5c;
+    text-decoration: underline;
+}
+
+.li-space-lg li:hover {
+    color: #3c3c3c;
+    text-decoration: underline;
+	cursor: pointer;
 }
 
 h1 {
 	color: #484a46;
-	font: 700 2.5rem/3rem "Montserrat", sans-serif;
+	font: 700 2.5rem/3rem "인피니티산스 CondBold", sans-serif;
 }
 
 h2 {
 	color: #484a46;
-	font: 700 1.75rem/2.125rem "Montserrat", sans-serif;
+	font: 700 1.75rem/2.125rem "인피니티산스 CondBold", sans-serif;
 }
 
 h3 {
 	color: #484a46;
-	font: 700 1.375rem/1.75rem "Montserrat", sans-serif;
+	font: 700 1.375rem/1.75rem "인피니티산스 CondBold", sans-serif;
 }
 
 h4 {
 	color: #484a46;
-	font: 700 1.25rem/1.625rem "Montserrat", sans-serif;
+	font: 700 1.25rem/1.625rem "인피니티산스 CondBold", sans-serif;
 }
 
 h5 {
 	color: #484a46;
-	font: 700 1.125rem/1.5rem "Montserrat", sans-serif;
+	font: 700 1.125rem/1.5rem "인피니티산스 CondBold", sans-serif;
 }
 
 h6 {
 	color: #484a46;
-	font: 700 1rem/1.375rem "Montserrat", sans-serif;
+	font: 700 1rem/1.375rem "인피니티산스 CondBold", sans-serif;
 }
 
 a {
@@ -123,10 +122,11 @@ a.white,
 
 .nojsbtn-font {
 	text-decoration: none;
-	font: 510 1rem/1.375rem "Montserrat", sans-serif;
+	font: 510 1rem/1.375rem "인피니티산스 Regular", sans-serif;
 }
 
 .linkbtn {
+	font-family: '인피니티산스 Regular';
 	color: #787976;
 	text-decoration: underline;
 }
@@ -134,6 +134,7 @@ a.white,
 .linkbtn:hover {
 	color: #636162;
 	text-decoration: underline;
+	cursor: pointer;
 }
 
 .result-btn-container {
@@ -158,6 +159,13 @@ a.white,
 	background-color: #CFCFCF;
 }
 
+.previous:hover {
+	background-color: #D8D8D8;
+	color: black;
+	cursor: pointer;
+	text-decoration: none;
+}
+
 .next-container {
 	color: white;
 	float: right;
@@ -166,16 +174,141 @@ a.white,
 .next {
 	margin-left: 9.4rem;
 	background-color: #4C4C4C;
-}
-
-.previous:hover {
-	background-color: #D8D8D8;
-	cursor: pointer;
+	text-decoration: none;
 }
 
 .next:hover {
 	background-color: #5D5D5D;
 	cursor: pointer;
+	text-decoration: none;
+}
+
+.dialog {
+    display: none;
+    position: fixed;
+    z-index: 1125;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+  
+.dialog-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fdfdfd;
+	padding: 15px;
+    margin: 0 auto;
+    border: 2.5px solid #515352;
+    border-radius: 0.5rem;
+    width: 70%;
+    max-height: 100vh;
+}
+
+.dialog-header {
+	display: flex;
+    padding: 1rem 1rem;
+    border-bottom: 1.75px solid #717372;
+}
+
+.dialog-title {
+    width: 80%;
+    font-family: "인피니티산스 CondBold";
+    font-size: 1.525rem;
+    margin-bottom: 0;
+    color: #212322;
+}
+
+.dialog-text {
+    width: 85%;
+    font-family: "인피니티산스 Bold";
+    font-size: 1.25rem;
+    text-align: center;
+    line-height: 1.51;
+    color: #515352;
+}
+  
+.dialog-close {
+    color: #aaaaaa;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 2.125rem;
+    font-weight: bold;
+}
+  
+.dialog-close:hover,
+.dialog-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.hidden-scroll {
+    height: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.send-email-wrap {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 2.5rem 0.25rem;
+    transition: all 0.35s ease-in-out;
+}
+
+.send-email-input {
+    display: block;
+    width: 75%;
+    height: 2.35rem;
+    font-family: "인피니티산스 Bold";
+    font-size: 0.85rem;
+    background: #fdfdfd;
+    border: 1.75px solid #0e0e0e;
+    border-radius: 8px;
+    margin: 0 0 1.25rem 1.5rem;
+    transition: all 0.35s ease-in-out;
+}
+
+.send-email-textarea {
+    display: block;
+    width: 65%;
+    font-family: "인피니티산스 Bold";
+    font-size: 0.95rem;
+    background: #fdfdfd;
+    border: 1.75px solid #0e0e0e;
+    border-radius: 2px;
+	margin: 0 0 1.25rem 1.5rem;
+    transition: all 0.35s ease-in-out;
+	resize: none;
+}
+
+.send-email-btn {
+    display: block;
+    width: 11.25rem;
+    height: 3.25rem;
+    font-family: "인피니티산스 Bold";
+    font-size: 1.025rem;
+    color: #fdfdfd;
+    background: #0e7cd6;
+    border: 2px solid #0e0e0e;
+    border-radius: 6px;
+    margin: 1.75rem auto 0 auto;
+    transition: all 0.25s ease-in-out;
+}
+
+.send-email-btn:hover {
+    color: #4a4b4c;
+    background: #fdfdfd;
+    border: 2.25px solid #0e7cd6;
+    transition: all 0.25s ease-in-out;
 }
 
 @media (max-width: 992px) {

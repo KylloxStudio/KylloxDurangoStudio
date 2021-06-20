@@ -102,24 +102,24 @@
                 <div class="col-lg-5">
                     <div class="text-container">
                         <div class="section-title">TESTING</div>
-                        <h2>동물 탑승 실험</h2>
-                        <p>동물 탑승 실험을 진행 중이며</p>
-                        <p>배포 시기는 미정입니다.</p>
-                        <p>(배포 시기는 늦어질 수 있습니다)</p>
+                        <h2>전투 시스템 실험</h2>
+                        <p>전투 시스템 실험을 진행 중이며,</p>
+                        <p>현재 80% 정도 완성되었습니다.</p>
+                        <p>(저작권 이슈로 공유는 불가능합니다)</p>
                         <div class="testimonial-author">- Kyllox</div>
                     </div>
                     <div class="text-container">
                         <div class="section-title"></div>
-                        <h2>Pet Boarding Experiment</h2>
-                        <p>I'm experimenting ride a pet,</p>
-                        <p>It will be distributed within March.</p>
-                        <p>(Sharing may be delayed)</p>
+                        <h2>Combat Systems Experiment</h2>
+                        <p>I'm experimenting a combat system,</p>
+                        <p>It is now about 80% complete.</p>
+                        <p>(Copyright issues make it impossible to share)</p>
                         <div class="testimonial-author">- Kyllox</div>
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="image-container">
-                        <img class="img-fluid" src="images/patchnote-image.png" alt="alternative">
+                        <img class="img-fluid" src="images/patchnote-image-2021.png" alt="alternative">
                     </div>
                 </div>
             </div>
@@ -370,15 +370,16 @@
                         <h2>문의 사항</h2>
                         <p>아래 이메일로 문의하실 수 있습니다.</p>
                         <ul class="list-unstyled li-space-lg">
-                            <li><i class="fas fa-envelope"></i><a class="linkbtn" rel="noopener noreferrer" target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZZQrCWbNhhFMxPsNRdNFVxcbVtfLqlsbCKWDDnZdmNVNwbTnKxrWTvwcWrbQNFMXsDbRg"><b>Kyllox4804@gmail.com</b></a></li>
+                            <li id="send-email"><i class="fas fa-envelope"></i><a class="linkbtn"><b>Kyllox4804@gmail.com</b></a></li>
                         </ul>
                         <h2>Inquiry</h2>
                         <p>If you have any questions, please send it to the email below.</p>
                         <ul class="list-unstyled li-space-lg">
-                            <li><i class="fas fa-envelope"></i><a class="linkbtn" rel="noopener noreferrer" target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZZQrCWbNhhFMxPsNRdNFVxcbVtfLqlsbCKWDDnZdmNVNwbTnKxrWTvwcWrbQNFMXsDbRg"><b>Kyllox4804@gmail.com</b></a></li>
+                            <li id="send-email2"><i class="fas fa-envelope"></i><a class="linkbtn"><b>Kyllox4804@gmail.com</b></a></li>
                         </ul>
                         
                         <h3>Kyllox 소셜 미디어</h3>
+                        <h3>Kyllox's Social Media</h3>
 
                         <span class="fa-stack">
                             <a rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/jimin.jung.96558/">
@@ -394,6 +395,22 @@
                         </span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="app-dialog" class="dialog">
+        <div class="dialog-content">
+            <span class="dialog-close">&times;</span>
+            <div class="dialog-header">
+                <h5 class="dialog-title">Send Email</h5>
+            </div>
+            <div class="send-email-wrap">
+                <input type="text" name="name" class="send-email-input form-control" placeholder="이름을 입력해주세요" onkeyup="checkWordByte(this, 20);">
+                <input type="text" name="email" class="send-email-input form-control" placeholder="이메일 주소를 입력해주세요">
+                <textarea name="message" rows="5" class="send-email-textarea form-control" placeholder="내용을 입력해주세요" onkeyup="checkWordByte(this, 100);"></textarea>
+                <input type="button" name="submit" class="send-email-btn" value="메일 보내기"/>
             </div>
         </div>
     </div>
@@ -424,12 +441,13 @@
 
     <script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
     <script id="dsq-count-scr" src="//kyllox-durango.disqus.com/count.js" async></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
 	
     <script>
-        // var disqus_config = function () {
-        // this.page.url = PAGE_URL;
-        // this.page.identifier = PAGE_IDENTIFIER;
-        // };
+        var disqus_config = function () {
+            this.page.url = "https://kyllox-durango.netlify.app";
+            this.page.identifier = "ko";
+        };
 
         (function() {
         var d = document, s = d.createElement('script');
@@ -437,6 +455,129 @@
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
         })();
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            emailjs.init("user_ObDVdiMQlk2RAhavouTNx");
+        });
+
+        var dialog = document.getElementById("app-dialog");
+        var closeBtn = document.getElementsByClassName("dialog-close")[0];
+        var submit = document.getElementsByName("submit")[0];
+
+        window.onclick = function(event) {
+            if (event.target == dialog) {
+                $('#app-dialog').fadeToggle(400);
+                $('body').removeClass('hidden-scroll').off('scroll touchmove mousewheel');
+            }
+        }
+
+        closeBtn.onclick = function() {
+            $('#app-dialog').fadeToggle(400);
+            $('body').removeClass('hidden-scroll').off('scroll touchmove mousewheel');
+        }
+
+        submit.onclick = function() {
+            var nameForm = document.getElementsByName("name")[0];
+            if (!nameForm.value) {
+                alert("이름을 입력해주세요.");
+                nameForm.focus();
+                return;
+            }
+
+            var emailForm = document.getElementsByName("email")[0];
+            if (!emailForm.value) {
+                alert("이메일을 입력해주세요.");
+                emailForm.focus();
+                return;
+            } else {
+                if (!CheckEmail(emailForm.value)) {
+                    alert("이메일 형식이 올바르지 않습니다.");
+                    emailForm.focus();
+                    return;
+                }
+            }
+
+            var message = document.getElementsByName("message")[0];
+            if (!message.value) {
+                alert("내용을 입력해주세요.");
+                message.focus();
+                return;
+            }
+
+            const template = {	
+                name: $('input[name=name]').val(),
+                email : $('input[name=email]').val(),
+                message : $('textarea[name=message]').val()
+           	};
+
+            emailjs.send('service_kyllox-durango', 'template_kyllox_durango', template).then(function(response) {
+                window.alert("SUCCESS!" + "\n" + response.status + " " + response.text);
+            }, function(e) {
+                window.alert("FAILED.." + "\n" + e);
+            });
+        }
+
+        $('#send-email').click(function() {
+            $('body').addClass('hidden-scroll').on('scroll touchmove mousewheel', function(event) {
+                $('#app-dialog').on('scroll touchmove mousewheel', function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    return false;
+                });
+            });
+            $('#app-dialog').fadeToggle('slow');
+        });
+
+        $('#send-email2').click(function() {
+            $('body').addClass('hidden-scroll').on('scroll touchmove mousewheel', function(event) {
+                $('#app-dialog').on('scroll touchmove mousewheel', function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    return false;
+                });
+            });
+            $('#app-dialog').fadeToggle('slow');
+        });
+
+        function checkWordByte(obj, maxByte) {
+            const text_val = obj.value;
+            const text_len = text_val.length;
+            
+            let totalByte = 0;
+            let totalWord = 0;
+            for (let i = 0; i < text_len; i++) {
+                const each_char = text_val.charAt(i);
+                const uni_char = escape(each_char);
+
+                if (uni_char.length > 4) {
+                    totalByte += 2;
+                } else {
+                    totalByte += 1;
+                }
+
+                if(totalByte <= maxByte){
+                    totalWord = i + 1;
+                }
+            }
+            
+            if (totalByte > maxByte) {
+                alert("최대 " + maxByte + "Byte까지만 입력 가능합니다.");
+                obj.value = text_val.substr(0, totalWord);
+                return;
+            }
+        }
+
+        function CheckEmail(str) {                                               
+            var email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+
+            if (!email.test(str)) {
+                return false;         
+            } else {
+                return true;
+            }
+        }
     </script>
 
     <script>
