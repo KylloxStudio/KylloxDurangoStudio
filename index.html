@@ -29,7 +29,7 @@
 </head>
 <body data-spy="scroll" data-target=".fixed-top">
     
-	<div class="spinner-wrapper">
+	<div id="loading" class="spinner-wrapper">
         <div class="spinner">
             <div class="bounce1"></div>
             <div class="bounce2"></div>
@@ -38,7 +38,7 @@
     </div>
     
 
-    <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
+    <nav id="navbar" class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
 
         <a class="navbar-brand logo-image" onclick="refresh();" href="#"><img src="images/kyllox-logo.png" alt="alternative"></a>
 
@@ -473,9 +473,18 @@
     </script>
 
     <script>
-        $(document).ready(function() {
+        $('body').ready(function() {
+            $('body').addClass('hidden-scroll').on('scroll touchmove mousewheel', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                return false;
+            });
             emailjs.init("user_ObDVdiMQlk2RAhavouTNx");
         });
+
+        window.onload = function() {
+            $('body').removeClass('hidden-scroll').off('scroll touchmove mousewheel');
+        };
 
         var closeBtn_ko = document.getElementById("dialog-close-ko");
         var submit_ko = document.getElementsByName("submit-ko")[0];
@@ -483,7 +492,7 @@
         closeBtn_ko.onclick = function() {
             $('#send-email-dialog-ko').fadeOut(400);
             $('body').removeClass('hidden-scroll').off('scroll touchmove mousewheel');
-        }
+        };
 
         submit_ko.onclick = function() {
             var nameForm = document.getElementsByName("name-ko")[0];
@@ -524,7 +533,7 @@
             }, function(e) {
                 window.alert("FAILED.." + "\n" + e);
             });
-        }
+        };
 
         $('#send-email-link-ko').click(function() {
             $('body').addClass('hidden-scroll').on('scroll touchmove mousewheel', function(event) {
@@ -563,7 +572,7 @@
                 obj.value = text_val.substr(0, totalWord);
                 return;
             }
-        }
+        };
 
         const CheckEmail = function(str) {                                               
             var email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
@@ -573,7 +582,7 @@
             } else {
                 return true;
             }
-        }
+        };
 
         var closeBtn_en = document.getElementById("dialog-close-en");
         var submit_en = document.getElementsByName("submit-en")[0];
@@ -581,7 +590,7 @@
         closeBtn_en.onclick = function() {
             $('#send-email-dialog-en').fadeOut(400);
             $('body').removeClass('hidden-scroll').off('scroll touchmove mousewheel');
-        }
+        };
 
         submit_en.onclick = function() {
             var nameForm = document.getElementsByName("name-en")[0];
@@ -622,7 +631,7 @@
             }, function(e) {
                 window.alert("FAILED.." + "\n" + e);
             });
-        }
+        };
 
         $('#send-email-link-en').click(function() {
             $('body').addClass('hidden-scroll').on('scroll touchmove mousewheel', function(event) {
@@ -635,7 +644,7 @@
             $('#send-email-dialog-en').fadeIn('slow');
         });
 
-        function checkWordByteEn(obj, maxByte) {
+        const checkWordByteEn = function(obj, maxByte) {
             const text_val = obj.value;
             const text_len = text_val.length;
             
@@ -661,58 +670,58 @@
                 obj.value = text_val.substr(0, totalWord);
                 return;
             }
-        }
+        };
     </script>
 
     <script>
         const refresh = function() {
             location.reload();
-        }
+        };
 
         const ShowResult01 = function() {
             $('#result-02').fadeOut('fast');
             setTimeout(function() {
                 $('#result-01').show();
-            }, 200);
-   		}
+            }, 195);
+   		};
 
         const ShowResult02 = function() {
             $('#result-01').fadeOut('fast');
             $('#result-03').fadeOut('fast');
             setTimeout(function() {
                 $('#result-02').show();
-            }, 200);
-   		}
+            }, 195);
+   		};
 
         const ShowResult03 = function() {
             $('#result-02').fadeOut('fast');
             $('#result-04').fadeOut('fast');
             setTimeout(function() {
                 $('#result-03').show();
-            }, 200);
-   		}
+            }, 195);
+   		};
 
         const ShowResult04 = function() {
             $('#result-03').fadeOut('fast');
             $('#result-05').fadeOut('fast');
             setTimeout(function() {
                 $('#result-04').show();
-            }, 200);
-   		}
+            }, 195);
+   		};
 
         const ShowResult05 = function() {
             $('#result-04').fadeOut('fast');
             setTimeout(function() {
                 $('#result-05').show();
-            }, 200);
-   		}
+            }, 195);
+   		};
 
         const hideAllResult = function() {
             $('#result-01').hide();
             $('#result-02').hide();
             $('#result-03').hide();
             $('#result-04').hide();
-   		}
+   		};
 
 		hideAllResult();
     </script>
