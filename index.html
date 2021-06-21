@@ -56,7 +56,7 @@
                     <a class="nav-link page-scroll" href="#testing">TESTING</a>
                 </li>
                 <li class="nav-item">
-                    <a onclick=hideAllResult();showHideResult03(); class="nav-link page-scroll" href="#result03">RESULT</a>
+                    <a onclick="hideAllResult();" class="nav-link page-scroll" href="#result-05">RESULT</a>
                 </li>
 				<li class="nav-item">
                     <a class="nav-link page-scroll" href="#community">COMMUNITY</a>
@@ -127,7 +127,7 @@
     </div>
 
 
-    <div id="result01" class="basic-1">
+    <div id="result-01" class="basic-1">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-5">
@@ -160,12 +160,12 @@
 		</div>
         <div class="result-btn-container">
             <div class="next-container">
-                <a onclick="showHideResult01();showHideResult02();" class="next round arrowbtn">&#8250;</a>
+                <a onclick="ShowResult02();" class="next round arrowbtn">&#8250;</a>
             </div>
         </div>
 	</div>
 
-    <div id="result02" class="basic-1">
+    <div id="result-02" class="basic-1">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-5">
@@ -198,15 +198,15 @@
 		</div>
         <div class="result-btn-container">
             <div class="previous-container">
-                <a onclick="showHideResult02();showHideResult01();" class="previous round arrowbtn">&#8249;</a>
+                <a onclick="ShowResult01();" class="previous round arrowbtn">&#8249;</a>
             </div>
             <div class="next-container">
-                <a onclick="showHideResult02();showHideResult03();" class="next round arrowbtn">&#8250;</a>
+                <a onclick="ShowResult03();" class="next round arrowbtn">&#8250;</a>
             </div>
         </div>
 	</div>
 	
-	<div id="result03" class="basic-1">
+	<div id="result-03" class="basic-1">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-5">
@@ -239,15 +239,15 @@
 		</div>
         <div class="result-btn-container">
             <div class="previous-container">
-                <a onclick="showHideResult03();showHideResult02();" class="previous round arrowbtn">&#8249;</a>
+                <a onclick="ShowResult02();" class="previous round arrowbtn">&#8249;</a>
             </div>
 		    <div class="next-container">
-                <a onclick="showHideResult03();showHideResult04();" class="next round arrowbtn">&#8250;</a>
+                <a onclick="ShowResult04();" class="next round arrowbtn">&#8250;</a>
             </div>
         </div>
 	</div>
 
-    <div id="result04" class="basic-1">
+    <div id="result-04" class="basic-1">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5">
@@ -280,15 +280,15 @@
         </div>
         <div class="result-btn-container">
             <div class="previous-container">
-                <a onclick="showHideResult04();showHideResult03();" class="previous round arrowbtn">&#8249;</a>
+                <a onclick="ShowResult03();" class="previous round arrowbtn">&#8249;</a>
             </div>
 		    <div class="next-container">
-                <a onclick="showHideResult04();showHideResult05();" class="next round arrowbtn">&#8250;</a>
+                <a onclick="ShowResult05();" class="next round arrowbtn">&#8250;</a>
             </div>
         </div>
 	</div>
 
-    <div id="result05" class="basic-1">
+    <div id="result-05" class="basic-1">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5">
@@ -321,7 +321,7 @@
         </div>
         <div class="result-btn-container">
             <div class="previous-container">
-                <a onclick="showHideResult05();showHideResult04();" class="previous round arrowbtn">&#8249;</a>
+                <a onclick="ShowResult04();" class="previous round arrowbtn">&#8249;</a>
             </div>
         </div>
 	</div>
@@ -370,12 +370,12 @@
                         <h2>문의 사항</h2>
                         <p>아래 이메일로 문의하실 수 있습니다.</p>
                         <ul class="list-unstyled li-space-lg">
-                            <li id="send-email"><i class="fas fa-envelope"></i><a class="linkbtn"><b>Kyllox4804@gmail.com</b></a></li>
+                            <li id="send-email-link-ko"><i class="fas fa-envelope"></i><a class="linkbtn"><b>Kyllox4804@gmail.com</b></a></li>
                         </ul>
                         <h2>Inquiry</h2>
                         <p>If you have any questions, please send it to the email below.</p>
                         <ul class="list-unstyled li-space-lg">
-                            <li id="send-email2"><i class="fas fa-envelope"></i><a class="linkbtn"><b>Kyllox4804@gmail.com</b></a></li>
+                            <li id="send-email-link-en"><i class="fas fa-envelope"></i><a class="linkbtn"><b>Kyllox4804@gmail.com</b></a></li>
                         </ul>
                         
                         <h3>Kyllox 소셜 미디어</h3>
@@ -400,17 +400,32 @@
     </div>
 
 
-    <div id="app-dialog" class="dialog">
+    <div id="send-email-dialog-ko" class="dialog">
         <div class="dialog-content">
-            <span class="dialog-close">&times;</span>
+            <span id="dialog-close-ko" class="dialog-close">&times;</span>
+            <div class="dialog-header">
+                <h5 class="dialog-title">이메일 보내기</h5>
+            </div>
+            <div class="send-email-wrap">
+                <input type="text" name="name-ko" class="send-email-input form-control" placeholder="이름을 입력해주세요" onkeyup="checkWordByteKo(this, 20);">
+                <input type="text" name="email-ko" class="send-email-input form-control" placeholder="이메일 주소를 입력해주세요" onkeyup="checkWordByteKo(this, 35);">
+                <textarea name="message-ko" rows="5" class="send-email-textarea form-control" placeholder="내용을 입력해주세요" onkeyup="checkWordByteKo(this, 100);"></textarea>
+                <input type="button" name="submit-ko" class="send-email-btn" value="메일 보내기"/>
+            </div>
+        </div>
+    </div>
+
+    <div id="send-email-dialog-en" class="dialog">
+        <div class="dialog-content">
+            <span id="dialog-close-en" class="dialog-close">&times;</span>
             <div class="dialog-header">
                 <h5 class="dialog-title">Send Email</h5>
             </div>
             <div class="send-email-wrap">
-                <input type="text" name="name" class="send-email-input form-control" placeholder="이름을 입력해주세요" onkeyup="checkWordByte(this, 20);">
-                <input type="text" name="email" class="send-email-input form-control" placeholder="이메일 주소를 입력해주세요">
-                <textarea name="message" rows="5" class="send-email-textarea form-control" placeholder="내용을 입력해주세요" onkeyup="checkWordByte(this, 100);"></textarea>
-                <input type="button" name="submit" class="send-email-btn" value="메일 보내기"/>
+                <input type="text" name="name-en" class="send-email-input form-control" placeholder="Please Write Your Name" onkeyup="checkWordByteEn(this, 20);">
+                <input type="text" name="email-en" class="send-email-input form-control" placeholder="Please Write Your Email Address" onkeyup="checkWordByteEn(this, 35);">
+                <textarea name="message-en" rows="5" class="send-email-textarea form-control" placeholder="Please Write Message" onkeyup="checkWordByteEn(this, 100);"></textarea>
+                <input type="button" name="submit-en" class="send-email-btn" value="Send Email"/>
             </div>
         </div>
     </div>
@@ -462,33 +477,25 @@
             emailjs.init("user_ObDVdiMQlk2RAhavouTNx");
         });
 
-        var dialog = document.getElementById("app-dialog");
-        var closeBtn = document.getElementsByClassName("dialog-close")[0];
-        var submit = document.getElementsByName("submit")[0];
+        var closeBtn_ko = document.getElementById("dialog-close-ko");
+        var submit_ko = document.getElementsByName("submit-ko")[0];
 
-        window.onclick = function(event) {
-            if (event.target == dialog) {
-                $('#app-dialog').fadeToggle(400);
-                $('body').removeClass('hidden-scroll').off('scroll touchmove mousewheel');
-            }
-        }
-
-        closeBtn.onclick = function() {
-            $('#app-dialog').fadeToggle(400);
+        closeBtn_ko.onclick = function() {
+            $('#send-email-dialog-ko').fadeOut(400);
             $('body').removeClass('hidden-scroll').off('scroll touchmove mousewheel');
         }
 
-        submit.onclick = function() {
-            var nameForm = document.getElementsByName("name")[0];
+        submit_ko.onclick = function() {
+            var nameForm = document.getElementsByName("name-ko")[0];
             if (!nameForm.value) {
                 alert("이름을 입력해주세요.");
                 nameForm.focus();
                 return;
             }
 
-            var emailForm = document.getElementsByName("email")[0];
+            var emailForm = document.getElementsByName("email-ko")[0];
             if (!emailForm.value) {
-                alert("이메일을 입력해주세요.");
+                alert("이메일 주소를 입력해주세요.");
                 emailForm.focus();
                 return;
             } else {
@@ -499,7 +506,7 @@
                 }
             }
 
-            var message = document.getElementsByName("message")[0];
+            var message = document.getElementsByName("message-ko")[0];
             if (!message.value) {
                 alert("내용을 입력해주세요.");
                 message.focus();
@@ -507,9 +514,9 @@
             }
 
             const template = {	
-                name: $('input[name=name]').val(),
-                email : $('input[name=email]').val(),
-                message : $('textarea[name=message]').val()
+                name: $('input[name=name-ko]').val(),
+                email : $('input[name=email-ko]').val(),
+                message : $('textarea[name=message-ko]').val()
            	};
 
             emailjs.send('service_kyllox-durango', 'template_kyllox_durango', template).then(function(response) {
@@ -519,29 +526,18 @@
             });
         }
 
-        $('#send-email').click(function() {
+        $('#send-email-link-ko').click(function() {
             $('body').addClass('hidden-scroll').on('scroll touchmove mousewheel', function(event) {
-                $('#app-dialog').on('scroll touchmove mousewheel', function(event) {
+                $('#send-email-dialog-ko').on('scroll touchmove mousewheel', function(event) {
                     event.preventDefault();
                     event.stopPropagation();
                     return false;
                 });
             });
-            $('#app-dialog').fadeToggle('slow');
+            $('#send-email-dialog-ko').fadeIn('slow');
         });
 
-        $('#send-email2').click(function() {
-            $('body').addClass('hidden-scroll').on('scroll touchmove mousewheel', function(event) {
-                $('#app-dialog').on('scroll touchmove mousewheel', function(event) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                    return false;
-                });
-            });
-            $('#app-dialog').fadeToggle('slow');
-        });
-
-        function checkWordByte(obj, maxByte) {
+        const checkWordByteKo = function(obj, maxByte) {
             const text_val = obj.value;
             const text_len = text_val.length;
             
@@ -569,7 +565,7 @@
             }
         }
 
-        function CheckEmail(str) {                                               
+        const CheckEmail = function(str) {                                               
             var email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
 
             if (!email.test(str)) {
@@ -578,61 +574,147 @@
                 return true;
             }
         }
+
+        var closeBtn_en = document.getElementById("dialog-close-en");
+        var submit_en = document.getElementsByName("submit-en")[0];
+
+        closeBtn_en.onclick = function() {
+            $('#send-email-dialog-en').fadeOut(400);
+            $('body').removeClass('hidden-scroll').off('scroll touchmove mousewheel');
+        }
+
+        submit_en.onclick = function() {
+            var nameForm = document.getElementsByName("name-en")[0];
+            if (!nameForm.value) {
+                alert("Please Write Your Name.");
+                nameForm.focus();
+                return;
+            }
+
+            var emailForm = document.getElementsByName("email-en")[0];
+            if (!emailForm.value) {
+                alert("Please Write Your Email Address.");
+                emailForm.focus();
+                return;
+            } else {
+                if (!CheckEmail(emailForm.value)) {
+                    alert("Email Format is Not Valid.");
+                    emailForm.focus();
+                    return;
+                }
+            }
+
+            var message = document.getElementsByName("message-en")[0];
+            if (!message.value) {
+                alert("Please Write Message.");
+                message.focus();
+                return;
+            }
+
+            const template = {	
+                name: $('input[name=name-en]').val(),
+                email : $('input[name=email-en]').val(),
+                message : $('textarea[name=message-en]').val()
+           	};
+
+            emailjs.send('service_kyllox-durango', 'template_kyllox_durango', template).then(function(response) {
+                window.alert("SUCCESS!" + "\n" + response.status + " " + response.text);
+            }, function(e) {
+                window.alert("FAILED.." + "\n" + e);
+            });
+        }
+
+        $('#send-email-link-en').click(function() {
+            $('body').addClass('hidden-scroll').on('scroll touchmove mousewheel', function(event) {
+                $('#send-email-dialog-en').on('scroll touchmove mousewheel', function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    return false;
+                });
+            });
+            $('#send-email-dialog-en').fadeIn('slow');
+        });
+
+        function checkWordByteEn(obj, maxByte) {
+            const text_val = obj.value;
+            const text_len = text_val.length;
+            
+            let totalByte = 0;
+            let totalWord = 0;
+            for (let i = 0; i < text_len; i++) {
+                const each_char = text_val.charAt(i);
+                const uni_char = escape(each_char);
+
+                if (uni_char.length > 4) {
+                    totalByte += 2;
+                } else {
+                    totalByte += 1;
+                }
+
+                if(totalByte <= maxByte){
+                    totalWord = i + 1;
+                }
+            }
+            
+            if (totalByte > maxByte) {
+                alert("You Can Only Enter Up to " + maxByte + "Bytes.");
+                obj.value = text_val.substr(0, totalWord);
+                return;
+            }
+        }
     </script>
 
     <script>
-        function refresh() {
+        const refresh = function() {
             location.reload();
         }
 
-        function showHideResult01() {
-            if (document.getElementById("result01").style.display == 'none') {
-                $('#result01').show();
-            } else {
-                $('#result01').hide();
-            }
+        const ShowResult01 = function() {
+            $('#result-02').fadeOut('fast');
+            setTimeout(function() {
+                $('#result-01').show();
+            }, 200);
    		}
 
-        function showHideResult02() {
-            if (document.getElementById("result02").style.display == 'none') {
-                $('#result02').show();
-            } else {
-                $('#result02').hide();
-            }
+        const ShowResult02 = function() {
+            $('#result-01').fadeOut('fast');
+            $('#result-03').fadeOut('fast');
+            setTimeout(function() {
+                $('#result-02').show();
+            }, 200);
    		}
 
-        function showHideResult03() {
-            if (document.getElementById("result03").style.display == 'none') {
-                $('#result03').show();
-            } else {
-                $('#result03').hide();
-            }
+        const ShowResult03 = function() {
+            $('#result-02').fadeOut('fast');
+            $('#result-04').fadeOut('fast');
+            setTimeout(function() {
+                $('#result-03').show();
+            }, 200);
    		}
 
-        function showHideResult04() {
-            if (document.getElementById("result04").style.display == 'none') {
-                $('#result04').show();
-            } else {
-                $('#result04').hide();
-            }
+        const ShowResult04 = function() {
+            $('#result-03').fadeOut('fast');
+            $('#result-05').fadeOut('fast');
+            setTimeout(function() {
+                $('#result-04').show();
+            }, 200);
    		}
 
-        function showHideResult05() {
-            if (document.getElementById("result05").style.display == 'none') {
-                $('#result05').show();
-            } else {
-                $('#result05').hide();
-            }
+        const ShowResult05 = function() {
+            $('#result-04').fadeOut('fast');
+            setTimeout(function() {
+                $('#result-05').show();
+            }, 200);
    		}
 
-        function hideAllResult() {
-            $('#result01').hide();
-            $('#result02').hide();
-            $('#result03').hide();
-            $('#result04').hide();
+        const hideAllResult = function() {
+            $('#result-01').hide();
+            $('#result-02').hide();
+            $('#result-03').hide();
+            $('#result-04').hide();
    		}
 
-		this.hideAllResult();
+		hideAllResult();
     </script>
 
     <script src="js/jquery.min.js"></script>

@@ -206,7 +206,7 @@ a.white,
     margin: 0 auto;
     border: 2.5px solid #515352;
     border-radius: 0.5rem;
-    width: 70%;
+    width: 75%;
     max-height: 100vh;
 }
 
@@ -645,8 +645,9 @@ a.white,
 }
 
 .header .header-content {
-	padding-top: 8rem;
-	padding-bottom: 2.125rem;
+	margin-top: 4rem;
+	padding-top: 14.75rem;
+	padding-bottom: 12.25rem;
 	text-align: center;
 }
 
@@ -844,7 +845,11 @@ a:hover.back-to-top {
 		padding: 0.25rem 0.75rem 0.25rem 0.75rem;
 	}
 	
-	.navbar-custom .nav-item .nav-link:hover,
+	.navbar-custom .nav-item .nav-link:hover {
+		color: #6EE3F7;
+		cursor: pointer;
+	}
+
 	.navbar-custom .nav-item .nav-link.active {
 		color: #6EE3F7;
 	}
@@ -891,6 +896,7 @@ a:hover.back-to-top {
 
 
 	.header .header-content {
+		margin-top: 0;
 		padding-top: 13rem;
 		padding-bottom: 7.5rem;
 	}
@@ -954,6 +960,7 @@ a:hover.back-to-top {
 
 
 	.header .header-content {
+		margin-top: 0;
 		padding-top: 14rem;
 		padding-bottom: 15rem;
 	}
@@ -991,6 +998,7 @@ a:hover.back-to-top {
 
 	
 	.header .header-content {
+		margin-top: 0;
 		padding-top: 14.75rem;
 		padding-bottom: 17.5rem;
 	}
