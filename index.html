@@ -64,9 +64,6 @@
                 <li class="nav-item">
                     <a class="nav-link page-scroll" href="#contact">CONTACT</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#comments">COMMENTS</a>
-                </li>
             </ul>
             <span class="nav-item social-icons">
                 <span class="fa-stack">
@@ -429,11 +426,6 @@
             </div>
         </div>
     </div>
-
-
-    <div id="comments">
-        <div id="disqus_thread"></div>
-    </div>
 	
 	
 	<div id="copyright" class="copyright">
@@ -455,21 +447,13 @@
 
 
     <script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
-    <script id="dsq-count-scr" src="//kyllox-durango.disqus.com/count.js" async></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
-	
-    <script>
-        var disqus_config = function () {
-            this.page.url = "https://kyllox-durango.netlify.app";
-            this.page.identifier = "ko";
-        };
 
-        (function() {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://kyllox-durango.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-        })();
+    <script>
+        if (window.location.href.indexOf('.html') > -1)
+        {
+            window.location.replace("https://kyllox-durango.netlify.app");
+        }
     </script>
 
     <script>
@@ -739,7 +723,7 @@
     <script src="js/scripts.js"></script>
 	
 	<noscript>
-		<META HTTP-EQUIV="Refresh" CONTENT="0;URL=pages/JavaScriptWarningPage.html"></META>
+		<META HTTP-EQUIV="Refresh" CONTENT="0;URL=pages/js-error.html"></META>
 	</noscript>
 </body>
 </html>
